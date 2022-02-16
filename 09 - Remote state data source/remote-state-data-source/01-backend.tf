@@ -44,7 +44,11 @@ resource "aws_dynamodb_table" "tf_lock" {
   tags = {
     Name = "Terraform Lock Table"
    }
- }
+  lifecycle {
+  prevent_destroy = true
+  }
+
+}
 
  # Provider Block
 provider "aws" {
